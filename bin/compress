@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+require "nokogiri"
+require "fileutils"
+
+module Compress
+  # Removes the wrapper svg element, the path elements stroke and fill attribute, new lines ('\n'),
+  # and stores in the compressed directory.
+  COMPRESSED = "compressed".freeze
+
+  def self.start!
+    Dir[File.join(File.dirname(__FILE__), "..", "icons", "**", "*.svg")].each do |file_path|
+      file_name = file_path.split("/").last
+
+      Dir.mkdir(COMPRESSED) unless Dir.exist?(COMPRESSED)
+
+      compressed_icon_path = "#{COMPRESSED}/#{file_name}"
+      FileUtils.touch(compressed_icon_path) unless File.exist?(compressed_icon_path)
+
+      File.open(compressed_icon_path, "w") do |svg_file|
+        file_path = File.join(File.dirname(__FILE__), "..", "icons", file_name)
+        file = File.read(file_path)
+
+        doc = Nokogiri::HTML::DocumentFragment.parse(file)
+
+        svg_file.write doc.at_css("svg").inner_html.gsub("\n", "")
+      end
+    end
+
+    puts "Finished compressing icons."
+  end
+end
+
+Compress.start!
