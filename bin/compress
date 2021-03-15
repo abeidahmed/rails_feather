@@ -4,8 +4,7 @@ require "nokogiri"
 require "fileutils"
 
 module Compress
-  # Removes the wrapper svg element, the path elements stroke and fill attribute, new lines ('\n'),
-  # and stores in the compressed directory.
+  # Removes the wrapper svg element, new lines ("\n"), and stores the icons in the compressed directory.
   COMPRESSED = "compressed".freeze
 
   def self.start!
