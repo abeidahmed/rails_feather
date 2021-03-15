@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["abeidahmed"]
   spec.email         = ["abeidahmed92@gmail.com"]
 
-  spec.summary       = "Ruby on Rails view helper method for rendering beautiful feather icons."
+  spec.summary       = "Ruby on Rails views helper method for rendering beautiful feather icons."
   spec.homepage      = "https://github.com/abeidahmed/rails_feather"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.6")
