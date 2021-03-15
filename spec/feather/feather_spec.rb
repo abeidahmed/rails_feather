@@ -40,4 +40,26 @@ RSpec.describe Feather::Feather do
       expect(another_icon.options[:role]).to eq("img")
     end
   end
+
+  describe "sizes" do
+    it "sets the viewBox to 0 0 24 24" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:viewBox]).to eq("0 0 24 24")
+    end
+
+    it "width and height defaults to 24" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:width]).to eq(24)
+      expect(icon.options[:height]).to eq(24)
+    end
+
+    it "width and height can be changed" do
+      icon = Feather::Feather.new("user", size: 20)
+
+      expect(icon.options[:width]).to eq(20)
+      expect(icon.options[:height]).to eq(20)
+    end
+  end
 end

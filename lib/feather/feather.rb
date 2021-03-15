@@ -2,14 +2,17 @@ module Feather
   class Feather
     attr_reader :options
 
-    def initialize(icon, **options)
+    def initialize(icon, size: 24, **options)
       @icon = icon.to_s
       @options = options
 
       @options.merge!(a11y)
       @options.merge!({
         fill: "none",
-        stroke: "currentColor"
+        stroke: "currentColor",
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size
       })
     end
 
