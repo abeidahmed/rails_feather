@@ -82,7 +82,7 @@ Any `html` and `eruby` attribute syntax is supported, for eg:
 ## Accessibility
 
 `rails_feather` automatically sets `aria-hidden="true"` if `aria-label` is not
-set, and if `aria-label` is set, then `role=img` is set on the `svg`.
+set, and if `aria-label` is set, then `role="img"` is set on the `svg`.
 
 ## Development
 
