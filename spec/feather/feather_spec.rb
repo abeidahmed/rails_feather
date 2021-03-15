@@ -1,5 +1,43 @@
-RSpec.describe Feather do
-  it "has a version number" do
-    expect(Feather::VERSION).not_to be nil
+RSpec.describe Feather::Feather do
+  describe "#initialize" do
+    it "sets the icon name" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.instance_variable_get(:@icon)).to eq("user")
+    end
+  end
+
+  describe "fill and stroke" do
+    it "sets the fill attribute to none" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:fill]).to eq("none")
+    end
+
+    it "sets the stroke attribute to currentColor" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:stroke]).to eq("currentColor")
+    end
+  end
+
+  describe "accessibility" do
+    it "sets aria-hidden to true if aria-label is not passed" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:"aria-hidden"]).to eq("true")
+    end
+
+    it "sets role to img if aria-label is passed" do
+      icon = Feather::Feather.new("user", "aria-label": "icon")
+
+      expect(icon.options.key?("aria-hidden")).to be_falsy
+      expect(icon.options[:role]).to eq("img")
+
+      another_icon = Feather::Feather.new("user", aria: { label: "icon" })
+
+      expect(another_icon.options.key?("aria-hidden")).to be_falsy
+      expect(another_icon.options[:role]).to eq("img")
+    end
   end
 end
