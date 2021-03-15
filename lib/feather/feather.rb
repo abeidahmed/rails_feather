@@ -11,6 +11,7 @@ module Feather
         fill: "none",
         stroke: "currentColor",
         viewBox: "0 0 24 24",
+        version: 1.1,
         width: size,
         height: size,
         "stroke-width": stroke_width,

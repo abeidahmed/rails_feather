@@ -88,4 +88,12 @@ RSpec.describe Feather::Feather do
       expect(icon.options[:"stroke-width"]).to eq(1)
     end
   end
+
+  describe "svg version" do
+    it "sets the version to 1.1" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:version]).to eq(1.1)
+    end
+  end
 end
