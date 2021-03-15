@@ -1,5 +1,7 @@
 # rails_feather
 
+> 286 feather icons as of today.
+
 Ruby on Rails views helper method for rendering beautiful feather icons. See all
 the icons [here](https://feathericons.com).
 
