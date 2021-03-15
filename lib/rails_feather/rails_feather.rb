@@ -20,7 +20,7 @@ module RailsFeather
       })
     end
 
-    # Finds the svg icon with respect to variant.
+    # Finds the svg icon from the compressed directory
     def svg_path
       file_path = "#{ICON_PATH}/#{@icon}.svg"
       raise "Couldn't find icon for #{@icon}" unless File.exist?(file_path)
