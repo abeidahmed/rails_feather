@@ -1,8 +1,8 @@
-require_relative "lib/rails/feather/version"
+require_relative "lib/feather/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "rails-feather"
-  spec.version       = Rails::Feather::VERSION
+  spec.version       = Feather::VERSION
   spec.authors       = ["abeidahmed"]
   spec.email         = ["abeidahmed92@gmail.com"]
 
