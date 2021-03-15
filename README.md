@@ -1,8 +1,8 @@
 # rails_feather
 
 <p float="left">
-  ![ci](https://github.com/abeidahmed/rails_feather/actions/workflows/ci.yml/badge.svg)
-  [![Gem Version](https://badge.fury.io/rb/rails_feather.svg)](https://badge.fury.io/rb/rails_feather)
+  <img src="https://github.com/abeidahmed/rails_feather/actions/workflows/ci.yml/badge.svg" alt="ci badge" />
+  <img src="https://badge.fury.io/rb/rails_feather.svg" alt="gem version" />
 </p>
 
 > 286 feather icons as of today on v4.28.0
