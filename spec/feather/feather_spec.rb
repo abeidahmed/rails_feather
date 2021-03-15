@@ -20,6 +20,12 @@ RSpec.describe Feather::Feather do
       expect(icon.svg_path).not_to be_nil
     end
 
+    it "does not has the svg wrapper html element" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.svg_path).not_to match(/svg/)
+    end
+
     it "raises error if icon is undefined" do
       icon = Feather::Feather.new("fooicon")
 
