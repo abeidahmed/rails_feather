@@ -1,5 +1,5 @@
-module Feather
-  class Feather
+module RailsFeather
+  class RailsFeather
     attr_reader :options
 
     def initialize(icon, size: 24, stroke_width: 2, **options)
