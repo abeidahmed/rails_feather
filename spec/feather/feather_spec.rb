@@ -33,6 +33,14 @@ RSpec.describe Feather::Feather do
     end
   end
 
+  describe "HTML attributes" do
+    it "sets any html attribute passed" do
+      icon = Feather::Feather.new("user", class: "custom-class")
+
+      expect(icon.options[:class]).to eq("custom-class")
+    end
+  end
+
   describe "fill and stroke" do
     it "sets the fill attribute to none" do
       icon = Feather::Feather.new("user")
