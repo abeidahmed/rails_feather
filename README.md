@@ -97,6 +97,9 @@ Bug reports and pull requests are welcome. This project is intended to be a
 safe, welcoming space for collaboration, and contributors are expected to adhere
 to the [code of conduct](https://github.com/abeidahmed/rails_feather/blob/main/CODE_OF_CONDUCT.md).
 
+Please refer to [CONTRIBUTING.md](https://github.com/abeidahmed/rails_feather/blob/main/CONTRIBUTING.md)
+for further instructions.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
