@@ -25,11 +25,8 @@ gem install rails_feather
 
 ## Usage
 
-After installing the gem, using it is as simple as
-
-```erb
-<%= feather_icon "activity" %>
-```
+After installing the gem, call `<%= feather_icon "activity" %>` on your `erb` template.
+The first argument is the icon name. All the icons are listed [here](https://feathericons.com).
 
 This will generate the following html:
 
