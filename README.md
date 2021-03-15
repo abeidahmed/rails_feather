@@ -1,6 +1,6 @@
 # rails_feather
 
-Ruby on Rails view helper method for rendering beautiful feather icons. See all
+Ruby on Rails views helper method for rendering beautiful feather icons. See all
 the icons [here](https://feathericons.com).
 
 ## Installation
