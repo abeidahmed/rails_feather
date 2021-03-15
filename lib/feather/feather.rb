@@ -2,7 +2,7 @@ module Feather
   class Feather
     attr_reader :options
 
-    def initialize(icon, size: 24, **options)
+    def initialize(icon, size: 24, stroke_width: 2, **options)
       @icon = icon.to_s
       @options = options
 
@@ -12,7 +12,10 @@ module Feather
         stroke: "currentColor",
         viewBox: "0 0 24 24",
         width: size,
-        height: size
+        height: size,
+        "stroke-width": stroke_width,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round"
       })
     end
 

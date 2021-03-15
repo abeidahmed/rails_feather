@@ -62,4 +62,30 @@ RSpec.describe Feather::Feather do
       expect(icon.options[:height]).to eq(20)
     end
   end
+
+  describe "stroke attributes" do
+    it "sets the stroke-linecap to round" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:"stroke-linecap"]).to eq("round")
+    end
+
+    it "sets the stroke-linejoin to round" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:"stroke-linejoin"]).to eq("round")
+    end
+
+    it "sets the stroke-width to 2 by default" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.options[:"stroke-width"]).to eq(2)
+    end
+
+    it "stroke-width can be changed" do
+      icon = Feather::Feather.new("user", stroke_width: 1)
+
+      expect(icon.options[:"stroke-width"]).to eq(1)
+    end
+  end
 end
