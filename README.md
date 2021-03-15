@@ -1,4 +1,4 @@
-# rails_feather
+# rails_feather ![ci](https://github.com/abeidahmed/rails_feather/actions/workflows/ci.yml/badge.svg)
 
 > 286 feather icons as of today on v4.28.0
 
