@@ -20,6 +20,14 @@ module Feather
       })
     end
 
+    # Finds the svg icon with respect to variant.
+    def svg_path
+      file_path = "#{ICON_PATH}/#{@icon}.svg"
+      raise "Couldn't find icon for #{@icon}" unless File.exist?(file_path)
+
+      File.read(file_path)
+    end
+
     private
 
     def a11y

@@ -1,9 +1,29 @@
 RSpec.describe Feather::Feather do
   describe "#initialize" do
-    it "sets the icon name" do
+    it "sets the icon name as string when passed as string" do
       icon = Feather::Feather.new("user")
 
       expect(icon.instance_variable_get(:@icon)).to eq("user")
+    end
+
+    it "sets the icon name as string when passed as symbol" do
+      icon = Feather::Feather.new(:user)
+
+      expect(icon.instance_variable_get(:@icon)).to eq("user")
+    end
+  end
+
+  describe "#svg_path" do
+    it "finds the icon" do
+      icon = Feather::Feather.new("user")
+
+      expect(icon.svg_path).not_to be_nil
+    end
+
+    it "raises error if icon is undefined" do
+      icon = Feather::Feather.new("fooicon")
+
+      expect { icon.svg_path }.to raise_error("Couldn't find icon for fooicon")
     end
   end
 
