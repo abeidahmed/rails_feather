@@ -112,3 +112,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 Everyone interacting in the rails_feather project's codebases, issue trackers,
 chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/abeidahmed/rails_feather/blob/main/CODE_OF_CONDUCT.md).
+
+## Similar projects
+
+- [rails_heroicon](https://github.com/abeidahmed/rails-heroicon) - Ruby on Rails
+  views helper for the awesome heroicons by Steve Schoger.
