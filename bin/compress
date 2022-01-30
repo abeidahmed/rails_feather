@@ -2,29 +2,29 @@
 
 require "nokogiri"
 require "fileutils"
+require "json"
 
 module Compress
   # Removes the wrapper svg element, new lines ("\n"), and stores the icons in the compressed directory.
   COMPRESSED = "compressed".freeze
+  ICONS_JSON = "icons.json".freeze
 
   def self.start!
-    Dir[File.join(File.dirname(__FILE__), "..", "icons", "**", "*.svg")].each do |file_path|
-      file_name = file_path.split("/").last
+    Dir.mkdir(COMPRESSED) unless Dir.exist?(COMPRESSED)
+    FileUtils.rm_rf(Dir.glob("#{COMPRESSED}/*"))
 
-      Dir.mkdir(COMPRESSED) unless Dir.exist?(COMPRESSED)
+    icons_files = Dir[File.join(File.dirname(__FILE__), "..", "icons", "**", "*.svg")]
 
-      compressed_icon_path = "#{COMPRESSED}/#{file_name}"
-      FileUtils.touch(compressed_icon_path) unless File.exist?(compressed_icon_path)
+    icons = icons_files.each_with_object({}) do |file_path, hash|
+      icon_name = File.basename(file_path, ".svg")
 
-      File.open(compressed_icon_path, "w") do |svg_file|
-        file_path = File.join(File.dirname(__FILE__), "..", "icons", file_name)
-        file = File.read(file_path)
+      file = File.read(file_path)
+      doc = Nokogiri::HTML::DocumentFragment.parse(file)
 
-        doc = Nokogiri::HTML::DocumentFragment.parse(file)
-
-        svg_file.write doc.at_css("svg").inner_html.gsub("\n", "")
-      end
+      hash[icon_name] = doc.at_css("svg").inner_html.gsub("\n", "")
     end
+
+    File.write("#{COMPRESSED}/#{ICONS_JSON}", JSON.pretty_generate(icons))
 
     puts "Finished compressing icons."
   end
